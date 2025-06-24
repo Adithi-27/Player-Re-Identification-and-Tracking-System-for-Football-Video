@@ -1,1 +1,8 @@
 # Re-identification-in-a-single-feed
+The goal of this project is to use deep learning-based detection and tracking techniques to re-identify players and analyze their movements from a single static video feed. Players and the ball are detected using a YOLOv8 model, and these detections are tracked over time using Deep SORT. To improve the accuracy of re-identifying players in scenes that are crowded or overlap, the system also uses appearance embeddings based on ResNet18.
+
+Python 3.8 or higher is required to set up the environment, and the following dependencies need to be installed: scikit-learn, matplotlib, `seaborn`, opencv-python, torch, torchvision, deep_sort_realtime, and ultralytics. A YOLOv8 model checkpoint (best.pt) and a video file (15sec_input_720p.mp4) must also be in the same directory as the script. The script can be executed with the straightforward command python re_identification_in_a_single_feed.py after dependencies have been installed.
+
+In order to detect and track players, estimate their speed of movement, identify possible ball passes, and produce insightful visual analytics, the program analyzes every frame of the video. The finished product consists of a player heatmap, cropped player photos (stored in a snapshots/folder), a video (output.mp4) with annotation overlays, and trajectory visualizations. Average speeds and total passes detected are among the console outputs.
+
+For examining player activity in sports videos from a single perspective, this solution is perfect. Despite its effectiveness, there are still certain drawbacks, like hardcoded thresholds and occlusion sensitivity. More sophisticated pass detection logic and domain-specific re-ID models may be advantageous in future iterations.
